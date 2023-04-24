@@ -1,3 +1,6 @@
+using Final_Project_3045.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,17 +19,32 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+    services.AddDbContext<StudentInfoContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionsString("StudentInfoContext")));
+}
 
-app.UseRouting();
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env, StudentInfoContext)
+{
+    if (env.IsDevelopment())
+    { app.UseDeveloperExceptionPage(); }
 
-app.UseAuthorization();
+    Context.Database.Migrate();
 
-app.UseEndpoints(endpoints => 
-{ 
-    endpoints.MapControllers(); 
-});
+    app.UseHttpsRedirection();
 
-app.MapControllers();
+    app.UseRouting();
 
-app.Run();
+    app.UseAuthorization();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllers();
+    });
+
+    app.MapControllers();
+
+    app.Run();
+}

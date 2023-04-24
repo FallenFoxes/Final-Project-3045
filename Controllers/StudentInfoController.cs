@@ -1,5 +1,4 @@
 ﻿using Final_Project_3045.Data;
-using Final_Project_3045.Interfaces;
 using Final_Project_3045.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,9 +11,9 @@ namespace Final_Project_3045.Controllers
 
         private readonly ILogger<StudentInfoController> _logger;
 
-        private readonly IStudentInfoContextDAO _context;
+        private readonly StudentInfoContext _context;
 
-        public StudentInfoController(ILogger<StudentInfoController> logger, IStudentInfoContextDAO context)
+        public StudentInfoController(ILogger<StudentInfoController> logger, StudentInfoContext context)
         {
             _logger = logger;
             _context = context;
@@ -26,7 +25,7 @@ namespace Final_Project_3045.Controllers
             return Ok(_context.GetAllStudents);
         }
 
-        [HttpGet]
+        [HttpGet("id")]
         public IActionResult Get(int id)
         {
             var student = _context.GetStudentById(id);

@@ -1,14 +1,13 @@
 ﻿using Final_Project_3045.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace Final_Project_3045.Data
 {
     public class StudentInfoContext : DbContext
     {
-        public StudentInfoContext(DbContextOptions<StudentInfoContext> options) : base(options) { }
-
         protected override void OnModelCreating(ModelBuilder builder) 
-        {
+        {         
             builder.Entity<StudentInfo>().HasData(
                 new StudentInfo
                 {
@@ -31,5 +30,14 @@ namespace Final_Project_3045.Data
         }
 
         public DbSet<StudentInfo> Students { get; set; }
+        public List<StudentInfo> GetAllStudents()
+        {
+            return Students.ToList();
+        }
+
+        public StudentInfo GetStudentById(int id) 
+        {
+            return Students.Where(x => x.Id.Equals(id)).FirstOrDefault();
+        }
     }
 }

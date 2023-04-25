@@ -1,3 +1,10 @@
+using Final_Project_3045.Data;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,3 +30,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+

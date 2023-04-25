@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Final_Project_3045.models
+namespace Final_Project_3045.Model
 {
     public class MusicRequest
     {

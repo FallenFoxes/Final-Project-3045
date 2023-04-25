@@ -1,4 +1,6 @@
-﻿namespace Final_Project_3045.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Final_Project_3045.Model
 {
     public class StudentInfo
     {

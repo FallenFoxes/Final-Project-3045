@@ -23,7 +23,7 @@ namespace Final_Project_3045.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_context.GetAllHobbies());
+            return Ok(_context.GetAllHobby());
         }
 
         [HttpGet("name")]
@@ -40,7 +40,7 @@ namespace Final_Project_3045.Controllers
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            var result = _context.RemoveStudentById(id);
+            var result = _context.RemoveHobbyById(id);
             if (result == null)
                 return NotFound();
 

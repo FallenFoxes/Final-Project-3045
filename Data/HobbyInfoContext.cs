@@ -9,7 +9,8 @@ namespace Final_Project_3045.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<HobbyInfo>().HasData(new HobbyInfo
+            builder.Entity<HobbyInfo>().HasData(
+            new HobbyInfo
             {
                 Id = 1,
                 Outside = "Gardening",
@@ -17,9 +18,19 @@ namespace Final_Project_3045.Data
                 Travel = "Swimming",
                 Night = "Sit Outside",
                 Weekend = "Shop"
-            });
+            },
+            new HobbyInfo
+            {
+                Id = 2,
+                Outside = "Skiing",
+                Indoor = "Gaming",
+                Travel = "Exploring",
+                Night = "Chilling",
+                Weekend = "Movies"
+            }        
+            );
         }
 
-        public DbSet<HobbyInfo> Hobby { get; set; }
+        public DbSet<HobbyInfo> Hobbys { get; set; }
     }
 }

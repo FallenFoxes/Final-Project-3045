@@ -10,7 +10,7 @@ namespace Final_Project_3045.Data
         public MusicInfoContext(DbContextOptions<MusicInfoContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("MusicInfoContext");
+            optionsBuilder.UseSqlServer("StudnetInfoContext");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -18,15 +18,24 @@ namespace Final_Project_3045.Data
                 new MusicInfo
                 {
                     Id = 1,
-                    FirstName = "Gabby",
+                    Name = "Gabby",
                     Artist = "Green Day",
                     Song = "21st Century Breakdown",
                     Genre = "Rock",
                     Instrument = "Guitar"
 
+                },
+                new MusicInfo
+                {
+                    Id = 2,
+                    Name = "William",
+                    Artist = "Sawano Hiroyuki",
+                    Song = "Nexus",
+                    Genre = "Alternative",
+                    Instrument = "Piano"
                 });
         }
 
-        public DbSet<StudentInfo> Students { get; set; }
+        public DbSet<MusicInfo> Musics { get; set; }
     }
 }

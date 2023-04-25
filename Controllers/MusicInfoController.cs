@@ -57,7 +57,7 @@ namespace Final_Project_3045.Controllers
             var result = _context.UpdateMusic(music);
 
             if (result == null)
-                return NotFound(music.id);
+                return NotFound(music.Id);
 
             if (result == 0)
             {

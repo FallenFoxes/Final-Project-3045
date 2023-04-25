@@ -3,18 +3,13 @@
 namespace Final_Project_3045.Model
 
 {
-    public class HobbyRequest
+    public class HobbyInfo
     {
-        [Key]
-
-        public string FavoriteOutsideHobby { get; set; }
-
-        public string FavoriteIndoorHobby { get; set; }
-
-        public string FavoriteTravelHobby { get; set; }
-
-        public string FavoriteNightHobby { get; set; }
-
-        public string FavoriteWeekendHobby { get; set; }
+        public int Id { get; set; }
+        public string? Outside { get; set; }
+        public string? Indoor { get; set; }
+        public string? Travel { get; set; }
+        public string? Night { get; set; }
+        public string? Weekend { get; set; }
     }
 }

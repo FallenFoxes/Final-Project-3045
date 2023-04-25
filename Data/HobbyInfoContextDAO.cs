@@ -3,7 +3,7 @@ using Final_Project_3045.Model;
 
 namespace Final_Project_3045.Data
 {
-    public class InfoContextDAO : IHobbyInfoContextDAO
+    public class HobbyInfoContextDAO : IHobbyInfoContextDAO
     {
         private HobbyInfoContext _context;
         public HobbyInfoContextDAO(HobbyInfoContext context)
@@ -13,14 +13,14 @@ namespace Final_Project_3045.Data
        
         public int? Add(HobbyInfo hobby)
         {
-            var hobby = _context.Hobby.Where(x => x.Hobby.Equals(hobby.Hobby)).FirstOrDefault();
+            var hobbys = _context.Hobbys.Where(x => x.Outside.Equals(hobby.Outside)).FirstOrDefault();
 
             if (hobby == null)
                 return null;
 
             try
             {
-                _context.Hobby.Add(hobby);
+                _context.Hobbys.Add(hobby);
                 _context.SaveChanges();
                 return 1;
             }
@@ -32,12 +32,12 @@ namespace Final_Project_3045.Data
 
         public List<HobbyInfo> GetAllHobby()
         {
-            return _context.Hobby.ToList();
+            return _context.Hobbys.ToList();
         }
 
         public HobbyInfo GetHobbyById(int id)
         {
-            return _context.Hobby.Where(x => x.Id.Equals(id)).FirstOrDefault();
+            return _context.Hobbys.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
         public int? RemoveHobbyById(int id)
@@ -46,7 +46,7 @@ namespace Final_Project_3045.Data
             if (hobby == null) return null;
             try
             {
-                _context.Hobby.Remove(hobby);
+                _context.Hobbys.Remove(hobby);
                 _context.SaveChanges();
                 return 1;
             }
@@ -63,7 +63,6 @@ namespace Final_Project_3045.Data
             if (hobbyToUpdate == null)
                 return null;
 
-            hobbyToUpdate.Hobby = hobby.Hobby;
             hobbyToUpdate.Id = hobby.Id;
             hobbyToUpdate.Outside = hobby.Outside;
             hobbyToUpdate.Indoor = hobby.Indoor;
@@ -73,7 +72,7 @@ namespace Final_Project_3045.Data
 
             try
             {
-                _context.Hobby.Update(hobbyToUpdate);
+                _context.Hobbys.Update(hobbyToUpdate);
                 _context.SaveChanges();
                 return 1;
             }

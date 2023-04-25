@@ -2,15 +2,13 @@
 
 namespace Final_Project_3045.Model
 {
-    public class MusicRequest
+    public class MusicInfo
     {
-        [Key]
-
-        public string FirstName { get; set; }
-        public string FavoriteArtist { get; set; }
-
-        public string FavoriteSong { get; set; }
-        public string FavoriteGenre { get; set; }
-        public string FavoriteInstrument { get; set; }
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Artist { get; set; }
+        public string? Song { get; set; }
+        public string? Genre { get; set; }
+        public string? Instrument { get; set; }
     }
 }

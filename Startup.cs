@@ -35,6 +35,7 @@ namespace Final_Project_3045
             //Game Info Services
             services.AddDbContext<GameInfoContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("StudentInfoContext")));
+            services.AddScoped<IGameInfoContextDAO, GameInfoContextDAO>();
 
             services.AddControllers();
 

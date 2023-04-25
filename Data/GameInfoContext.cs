@@ -21,10 +21,5 @@ namespace Final_Project_3045.Data
         }
 
         public DbSet<GameInfo> Games { get; set; }
-
-        public List<GameInfo> GetAllGames()
-        {
-            return Games.ToList();
-        }
     }
 }

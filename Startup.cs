@@ -33,7 +33,7 @@ namespace Final_Project_3045
             services.AddScoped<IStudentInfoContextDAO, StudentInfoContextDAO>();
 
             //Game Info Services
-            services.AddDbContext<GameInfoContext>(options =>
+            services.AddDbContext<HobbyInfoContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("StudentInfoContext")));
             services.AddScoped<IGameInfoContextDAO, GameInfoContextDAO>();
 

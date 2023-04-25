@@ -5,8 +5,8 @@ namespace Final_Project_3045.Data
 {
     public class GameInfoContextDAO : IGameInfoContextDAO
     {
-        private GameInfoContext _context;
-        public GameInfoContextDAO(GameInfoContext context)
+        private HobbyInfoContext _context;
+        public GameInfoContextDAO(HobbyInfoContext context)
         {
             _context = context;
         }

@@ -28,7 +28,7 @@ namespace Final_Project_3045.Data
                 { 
                     Id = 2,
                     FirstName = "Gabby",
-                    LastName = "Mcclimans",
+                    LastName = "McClimans",
                     Birthday = "10/05/2000",
                     CollegeProgram = "Game Dev/Software Dev",
                     ProgramYear = "2025"}
